@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- [Head] start -->
+
+<head>
+  <title>Sign up | Mantis Bootstrap 5 Admin Template</title>
+  <!-- [Meta] -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Mantis is made using Bootstrap 5 design framework. Download the free admin template & use it for your project.">
+  <meta name="keywords" content="Mantis, Dashboard UI Kit, Bootstrap 5, Admin Template, Admin Dashboard, CRM, CMS, Bootstrap Admin Template">
+  <meta name="author" content="CodedThemes">
+
+  <!-- [Favicon] icon -->
+  <link rel="icon" href="assets/images/favicon.svg" type="image/x-icon"> <!-- [Google Font] Family -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" id="main-font-link">
+<!-- [Tabler Icons] https://tablericons.com -->
+<link rel="stylesheet" href="assets/fonts/tabler-icons.min.css" >
+<!-- [Feather Icons] https://feathericons.com -->
+<link rel="stylesheet" href="assets/fonts/feather.css" >
+<!-- [Font Awesome Icons] https://fontawesome.com/icons -->
+<link rel="stylesheet" href="assets/fonts/fontawesome.css" >
+<!-- [Material Icons] https://fonts.google.com/icons -->
+<link rel="stylesheet" href="assets/fonts/material.css" >
+<!-- [Template CSS Files] -->
+<link rel="stylesheet" href="assets/css/style.css" id="main-style-link" >
+<link rel="stylesheet" href="assets/css/style-preset.css" >
+
+
+<style>
+  /* Toast Styles */
+      .toast-container {
+        position: fixed;
+        top: 25px;
+        right: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 1000;
+      }
+
+      .toast {
+        position: relative;
+        width: 320px;
+        border-radius: 12px;
+        background: #fff;
+        padding: 20px 35px 20px 25px;
+        box-shadow: 0 6px 20px -5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        overflow-x: hidden;
+        align-items: center;
+        transform: translateX(calc(100% + 30px));
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+      }
+
+      .toast.active {
+        transform: translateX(0%);
+      }
+
+      .toast .toast-content {
+        display: flex;
+        align-items: center;
+      }
+
+      .toast-content .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 35px;
+        min-width: 35px;
+        font-size: 35px;
+        color: #fff;
+      }
+
+      .toast-content .message {
+        display: flex;
+        flex-direction: column;
+        margin-left: 15px;
+      }
+
+      .message .text {
+        font-size: 16px;
+        font-weight: 400;
+        color: #666666;
+        font-family: "Outfit", serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+      }
+
+      .message .text.text-1 {
+        font-weight: 600;
+        color: #333;
+      }
+
+      .toast .close {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        padding: 5px;
+        cursor: pointer;
+        opacity: 0.7;
+      }
+
+      .toast .close:hover {
+        opacity: 1;
+      }
+
+      .toast .progress {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 3px;
+        width: 100%;
+      }
+
+      .toast .progress:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        background-color: #4070f4;
+      }
+      /* If you edit the timeout variable in the JS, be sure to edit this too */
+      .progress.active:before {
+        animation: progress 5s linear forwards;
+      }
+
+      @keyframes progress {
+        100% {
+          right: 100%;
+        }
+      }
+
+      /* Toast Type Colors */
+      .toast.success .icon {
+        color: rgb(25 135 84);
+      }
+      .toast.error .icon {
+        color: rgb(220 53 69);
+      }
+      .toast.warning .icon {
+        color: rgb(255 193 7);
+      }
+      .toast.info .icon {
+        color: rgb(13 202 240);
+      }
+
+      .toast.success .progress:before {
+        background: rgb(25 135 84);
+      }
+      .toast.error .progress:before {
+        background: rgb(220 53 69);
+      }
+      .toast.warning .progress:before {
+        background: rgb(255 193 7);
+      }
+      .toast.info .progress:before {
+        background: rgb(13 202 240);
+      }
+    </style>
+</style>
+
+</head>
+<!-- [Head] end -->
+<!-- [Body] Start -->
+
+<body>
+  <div class="toast-container"></div>
+
+  <!-- [ Pre-loader ] start -->
+  <div class="loader-bg">
+    <div class="loader-track">
+      <div class="loader-fill"></div>
+    </div>
+  </div>
+  <!-- [ Pre-loader ] End -->
+ 
+  <div class="auth-main">
+    <div class="auth-wrapper v3">
+      <div class="auth-form">
+        <div class="auth-header">
+          <img src="../assets/" alt="">
+          <a href="#"><img src="assets/images/logo-dark.svg" alt="img"></a>
+        </div>
+      </form>
+      <form action="/sellerRagister" id="seller" method="post">
+        <div class="card my-5">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-end mb-4">
+              <h3 class="mb-0"><b>Sign up</b></h3>
+              <a href="/" class="link-primary">Already have an account?</a>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group mb-3">
+                  <label class="form-label">First Name*</label>
+                  <input type="text" id="fname" name="fname" class="form-control" placeholder="First Name">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group mb-3">
+                  <label class="form-label">Last Name</label>
+                  <input type="text" id="lname" name="lname"  class="form-control" placeholder="Last Name">
+                </div>
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <label class="form-label">Resturent</label>
+              <input type="text" id="resturentname" name="resturentname" class="form-control" placeholder="Company">
+            </div>
+            <div class="form-group mb-3">
+              <label class="form-label">Email Address*</label>
+              <input type="email" id="email" name="email" class="form-control" placeholder="Email Address">
+            </div>
+            <div class="form-group mb-3">
+              <label class="form-label">Mobaile Number*</label>
+              <input type="text" id="phone" name="phone" class="form-control" placeholder="Email Address">
+            </div>
+            <div class="form-group mb-3">
+              <label class="form-label">Password</label>
+              <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+            </div>
+            <p class="mt-4 text-sm text-muted">By Signing up, you agree to our <a href="#" class="text-primary"> Terms of Service </a> and <a href="#" class="text-primary"> Privacy Policy</a></p>
+            <div class="d-grid mt-3">
+              <!-- <button type="submit" class="btn btn-primary">Create Account</button> -->
+              <input type="submit" id="createac" class="btn btn-primary" value="Create Account">
+
+            </div>
+            <div class="saprator mt-3">
+              <span>Sign up with</span>
+            </div>
+            <div class="row">
+              <div class="col-4">
+                <div class="d-grid">
+                  <button type="button" class="btn mt-2 btn-light-primary bg-light text-muted">
+                    <img src="assets/images/authentication/google.svg" alt="img"> <span class="d-none d-sm-inline-block"> Google</span>
+                  </button>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="d-grid">
+                  <button type="button" class="btn mt-2 btn-light-primary bg-light text-muted">
+                    <img src="assets/images/authentication/twitter.svg" alt="img"> <span class="d-none d-sm-inline-block"> Twitter</span>
+                  </button>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="d-grid">
+                  <button type="button" class="btn mt-2 btn-light-primary bg-light text-muted">
+                    <img src="assets/images/authentication/facebook.svg" alt="img"> <span class="d-none d-sm-inline-block"> Facebook</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </form>
+        <div class="auth-footer row">
+          <!-- <div class=""> -->
+            <div class="col my-1">
+              <p class="m-0">Copyright © <a href="#">Codedthemes</a></p>
+            </div>
+            <div class="col-auto my-1">
+              <ul class="list-inline footer-link mb-0">
+                <li class="list-inline-item"><a href="#">Home</a></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                <li class="list-inline-item"><a href="#">Contact us</a></li>
+              </ul>
+            </div>
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- </form> -->
+  <!-- [ Main Content ] end -->
+  <!-- Required Js -->
+  <script src="assets/js/plugins/popper.min.js"></script>
+  <script src="assets/js/plugins/simplebar.min.js"></script>
+  <script src="assets/js/plugins/bootstrap.min.js"></script>
+  <script src="assets/js/fonts/custom-font.js"></script>
+  <script src="assets/js/pcoded.js"></script>
+  <script src="assets/js/plugins/feather.min.js"></script>
+
+  
+  
+  
+  
+  <script>layout_change('light');</script>
+  
+  
+  
+  
+  <script>change_box_container('false');</script>
+  
+  
+  
+  <script>layout_rtl_change('false');</script>
+  
+  
+  <script>preset_change("preset-1");</script>
+  
+  
+  <script>font_change("Public-Sans");</script>
+  
+
+
+  <script> 
+
+      document.getElementById('createac').addEventListener("click", async () =>{
+        navigator.geolocation.getCurrentPosition(takelocation,error);
+      })
+     function takelocation (position){
+      console.log(position.coords.latitude);
+      console.log(position.coords.longitude);
+      console.log(position);
+      
+     }
+     function error(){
+       console.log("error in location");
+     }
+
+  </script>
+ <script>
+  const timeout = 5000; // Time it takes for the toast to disappear, in ms
+  // NOTE: Be sure to edit the css animation as well for the progress bar
+
+  function showToast(message, type = "success") {
+    const toastContainer = document.querySelector(".toast-container");
+
+    const toast = document.createElement("div");
+    toast.classList.add("toast", type);
+
+    toast.innerHTML = `
+<div class="toast-content">
+  <i class="bi icon bi-${getIcon(type)}"></i>
+  <div class="message">
+    <span class="text text-1">${capitalize(type)}</span>
+    <span class="text text-2">${message}</span>
+  </div>
+</div>
+<i class="bi bi-x-lg close"></i>
+<div class="progress active"></div>
+`;
+
+    toastContainer.appendChild(toast);
+    let showToast = setTimeout(() => {
+      void toast.offsetHeight;
+      toast.classList.add("active");
+    }, 1);
+
+    const progress = toast.querySelector(".progress");
+    const closeIcon = toast.querySelector(".close");
+
+    // Auto-remove toast after 5s
+    const timer1 = setTimeout(() => {
+      toast.classList.remove("active");
+    }, timeout);
+
+    const timer2 = setTimeout(() => {
+      progress.classList.remove("active");
+      setTimeout(() => toast.remove(), 400);
+    }, timeout + 300);
+
+    // Manual close
+    closeIcon.addEventListener("click", () => {
+      toast.classList.remove("active");
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      clearTimeout(showToast);
+      setTimeout(() => toast.remove(), 400);
+    });
+  }
+
+  function getIcon(type) {
+    switch (type) {
+      case "success":
+        return "check-circle-fill";
+      case "error":
+        return "x-circle-fill";
+      case "warning":
+        return "exclamation-triangle-fill";
+      case "info":
+        return "info-circle-fill";
+      default:
+        return "check-circle-fill";
+    }
+  }
+
+  function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+ 
+
+  // <% if(success_msg) { %>
+  //       showToast("<%= success_msg %>", "success");
+  //   <% } %>
+
+
+  //   <% if(error_msg) { %>
+  //       showToast("<%= error_msg %>", "error");
+  //   <% } %>
+
+  //   <% if(warning_msg) { %>
+  //       showToast("<%= error_msg %>", "warning");
+  //   <% } %>
+
+  //   <% if(info_msg) { %>
+  //       showToast("<%= error_msg %>", "info");
+  //   <% } %>
+
+</script> 
+
+
+</body>
+<!-- [Body] end -->
+
+</html> 

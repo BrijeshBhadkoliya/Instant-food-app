@@ -1,0 +1,5 @@
+# dush folders
+node_modules
+
+# security enviromet folders
+.env
