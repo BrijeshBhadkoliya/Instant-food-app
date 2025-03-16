@@ -22,7 +22,9 @@ const ragisterGet = async (req, res) => {
        const secondTime = await adminschemaModel.findOne({email:req.body.email});
 
         if(secondTime){
-            req.session.info_msg = "All fields are required";
+            req.session.info_msg = "Seller already exist";
+        console.log(req.session);
+
              console.log("Seller already exist");  
             return res.redirect('ragisterGet');
         }
@@ -31,7 +33,8 @@ const ragisterGet = async (req, res) => {
 
         req.session.success_msg = "Welcome to the seller panel";
         // console.log(req.body);
-
+        console.log(req.session);
+        
         await adminschemaModel.create(req.body);
         return res.redirect('/sellerdaBord');
 

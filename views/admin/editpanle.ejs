@@ -913,28 +913,32 @@
                           <h5>Add Your Dish</h5>
                         </div>
                         <div class="card-body">
-                          <form action="/sellerdaBord/adddish" enctype="multipart/form-data" method="post" class="row row-cols-md-auto g-3 align-items-center">
+                          <form action="/sellerdaBord/updataProduct" enctype="multipart/form-data" method="post" class="row row-cols-md-auto g-3 align-items-center">
                             <div class="col-12">
                               <input type="hidden" class="form-control" name="adminid" value="<%= data._id %>" id="inlineFormInputName" placeholder="Dish Name">
                             </div>
                             <div class="col-12">
+                              <input type="hidden" class="form-control" name="editid" value="<%= product._id %>" id="inlineFormInputName" placeholder="Dish Name">
+                            </div>
+                            <div class="col-12">
                               <label class="sr-only" for="inlineFormInputName">Dish Name</label>
-                              <input type="text" class="form-control" name="dname" id="inlineFormInputName" placeholder="Dish Name">
+                              <input type="text" class="form-control" name="dname" value="<%= product.dname %>" id="inlineFormInputName" placeholder="Dish Name">
                             </div>
                             <div class="col-12">
                               <label class="sr-only" for="inlineFormInputName">Dish Description</label>
-                              <input type="text" class="form-control" name="ddescription" id="inlineFormInputName" maxlength="60" placeholder="Dish Description">
+                              <input type="text" class="form-control" value="<%= product.ddescription %>" name="ddescription" id="inlineFormInputName" maxlength="60" placeholder="Dish Description">
                             </div>
                             <div class="col-12">
-                              <label class="sr-only" for="inlineFormInputGroupUsername">Price</label>
+                              <label class="sr-only"  for="inlineFormInputGroupUsername">Price</label>
                               <div class="input-group">
                                 <div class="input-group-text">₹</div>
-                                <input type="text" class="form-control" name="price" id="inlineFormInputGroupUsername" placeholder="Price">
+                                <input type="text" class="form-control" value="<%= product.price %>" name="price" id="inlineFormInputGroupUsername" placeholder="Price">
                               </div>
                             </div>
                             <div class="col-12">
                               <label class="sr-only"  for="inlineFormSelectPref">Preference</label>          
                               <input type="file" name="imges" id="imges" class="form-control" placeholder="Dish Images">
+                              <img src="<%= product.imges %>"  alt="">
                             </div>
                             <div class="col-12">
                               <div class="form-check">

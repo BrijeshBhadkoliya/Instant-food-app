@@ -168,7 +168,6 @@
 <!-- [Body] Start -->
 
 <body>
-  <div class="toast-container"></div>
 
   <!-- [ Pre-loader ] start -->
   <div class="loader-bg">
@@ -179,12 +178,15 @@
   <!-- [ Pre-loader ] End -->
  
   <div class="auth-main">
+
     <div class="auth-wrapper v3">
       <div class="auth-form">
         <div class="auth-header">
-          <img src="../assets/" alt="">
+           
           <a href="#"><img src="assets/images/logo-dark.svg" alt="img"></a>
         </div>
+  <div class="toast-container"></div>
+
       </form>
       <form action="/sellerRagister" id="seller" method="post">
         <div class="card my-5">
@@ -396,23 +398,21 @@
   }
 
  
+ 
+  // const success_msg = "<%= success_msg %>";
+  // const error_msg = "<%= error_msg %>";
+  // const warning_msg = "<%= warning_msg %>";
+  // const info_msg = "<%=  info_msg %>";
+// console.log(success_msg);
+const success_msg = "hello";
+  const error_msg = "hello";
+  const warning_msg = "hello";
+  const info_msg = "hello";
+  showToast(success_msg, "success");
+  showToast(error_msg, "error");
+   showToast(warning_msg, "warning");
+   showToast(info_msg, "info");
 
-  // <% if(success_msg) { %>
-  //       showToast("<%= success_msg %>", "success");
-  //   <% } %>
-
-
-  //   <% if(error_msg) { %>
-  //       showToast("<%= error_msg %>", "error");
-  //   <% } %>
-
-  //   <% if(warning_msg) { %>
-  //       showToast("<%= error_msg %>", "warning");
-  //   <% } %>
-
-  //   <% if(info_msg) { %>
-  //       showToast("<%= error_msg %>", "info");
-  //   <% } %>
 
 </script> 
 
