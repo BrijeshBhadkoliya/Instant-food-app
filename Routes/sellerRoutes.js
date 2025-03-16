@@ -1,5 +1,5 @@
 const {sellerdaBord} = require('../controller/authController');
-const { adddish, viewProduct ,deleteproduct , editproduct, updataProduct , activenoac} = require('../controller/sellerController');
+const { adddish, viewProduct ,deleteproduct , editproduct, updataProduct , activenoac , viewprofile} = require('../controller/sellerController');
 
 const {loader} = require('../middleware/loader');
 const router = require('express').Router();
@@ -28,6 +28,6 @@ router.get('/deleteproduct', deleteproduct)
 router.get('/editproduct',editproduct)
 router.post('/updataProduct',upload.single('imges'),updataProduct)
 router.get('/activenoac',activenoac)
-
+router.get('/viewprofile', viewprofile)
 
 module.exports = router;  

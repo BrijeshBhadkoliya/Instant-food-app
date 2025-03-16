@@ -10,6 +10,9 @@ require('./config/db').connectDB();
 
 app.set('view engine', 'ejs');
 
+const cookieparser = require('cookie-parser');
+app.use(cookieparser())
+
 app.use(session({
     secret: "brijesh",
     resave: false,

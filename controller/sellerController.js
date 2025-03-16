@@ -130,6 +130,16 @@ const activenoac = async (req, res) => {
 
   }
 };
+const viewprofile = async (req,res) => {
+  if (!req.session.seller) {
+    req.session.error_msg = "Please log in first!";
+    return res.redirect("/");
+  }  
+  const seller = req.session.seller
+      const id =  seller._id
+     const user =  await adminschemaModel.findById(id)
+  
+}
 
 module.exports = {
   viewProduct,
@@ -137,5 +147,6 @@ module.exports = {
   deleteproduct,
   editproduct,
   updataProduct,
-  activenoac
+  activenoac,
+  viewprofile
 };

@@ -1,5 +1,6 @@
 const adminschemaModel = require('../model/adminschema');
 const bcrypt =require('bcrypt');
+const nodemailer = require('nodemailer')
 const ragisterGet = async (req, res) => {  
         return res.render('./pages/register');
  }
@@ -80,5 +81,77 @@ if(!match){
     return res.render('./admin/panle',{data:req.session.seller});
 
 }
+const logout = async (req, res) => {
+    return res.redirect('/');
+}
 
- module.exports = { ragisterGet, loginGet, sellerRagister, sellerlogin ,sellerdaBord };
+const  underConstrction = async (req, res) => {
+  return res.render("./pages/under-construction");
+}
+
+const coomingSoon = async (req, res) => {
+  return res.render("./pages/coming-soon");
+}
+
+const  forgetpass = async (req, res) => {
+  return res.render("./pages/forgot-password");
+}
+
+const  verifymail = async (req, res) => {
+     const email  = req.body.email;
+     console.log(req.body);
+     
+     const otp = Math.floor(1000 + Math.random() * 999999);
+    //  var transporter = nodemailer.createTransport({
+    //     service: 'gmail',
+    //     auth: {
+    //       user: 'bhadkoliyajbrijesh@gmail.com',
+    //       pass: '5610'
+    //     }
+    //   });
+      
+    //   var mailOptions = {
+    //     from: 'bhadkoliyajbrijesh@gmail.com',
+    //     to: email,
+    //     subject: 'Sending Email using Node.js',
+    //     text:  `your Otp is ${otp}`
+    //   };
+      
+    //   transporter.sendMail(mailOptions, function(error, info){
+    //     if (error) {
+    //       console.log(error);
+    //     } else {
+    //       console.log('Email sent: ' + info.response);
+    //     }
+    //   });
+
+    res.cookie('otp', otp)
+    res.cookie('email', email)
+    return res.render("./pages/code-verification",{email}); 
+}
+const chackotp = (req,res) =>{
+     const {a,b,c,d ,e ,f} = req.body
+     const mainotp = req.cookies.otp 
+     const otp = a+b+c+d+e+f
+     
+     if(mainotp===otp){
+        return res.render('./pages/reset-password')
+     }
+     
+}
+const changepaword = async (req,res) =>{
+    const email = req.cookies.email
+    console.log(email);
+    const {conpassword ,changpassword} = req.body
+    console.log(req.body);
+    
+    if(conpassword === changpassword){
+        const user = await adminschemaModel.findOne({email})  
+          const hashpass = await bcrypt.hash(changpassword,10) 
+          await adminschemaModel.findByIdAndUpdate(user._id,{password:hashpass})
+          return res.redirect('/')
+    }
+    return res.render('./pages/reset-password')
+   
+}
+ module.exports = { ragisterGet, loginGet, sellerRagister, sellerlogin ,sellerdaBord , logout, underConstrction , coomingSoon , forgetpass, verifymail, chackotp , changepaword };
