@@ -13,22 +13,38 @@ app.set('view engine', 'ejs');
 const cookieparser = require('cookie-parser');
 app.use(cookieparser())
 
+// passprot js oauth 
+const passport = require('passport')
+const passportgoogel = require('./config/googleauth')
+
+
+
+
+
 app.use(session({
     secret: "brijesh",
     resave: false,
     saveUninitialized: true,
     cookie: { maxAge: 60000*60*24 ,secure: false}
 }));
+
+app.use(passport.initialize());
+app.use(passport.session());
 cloudinary.config({
     cloud_name: process.env.CLOUD_NAME,
     api_key: process.env.API_KEY,
     api_secret: process.env.API_SECRET
 });
+
+
+
 app.use(tosty);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'uploads')));
+app.use(express.static(path.join(__dirname, 'logos')));
+
 
 app.use('/', require('./Routes/indexrouts'));
 

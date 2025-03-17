@@ -40,6 +40,89 @@
     <!-- [Template CSS Files] -->
     <link rel="stylesheet" href="/assets/css/style.css" id="main-style-link" />
     <link rel="stylesheet" href="/assets/css/style-preset.css" />
+
+<style>
+  
+.tick{
+	position: relative;
+	top: 0.5vh;
+}
+.main{
+	height: auto;
+	width: 35vw;
+	background-color: white;
+	margin: auto;
+	position: relative;
+	top: 15vh;
+	padding: 3vh;
+  border: 1px solid rgb(136, 136, 136) 10px ;
+}
+.picture img{
+	height: 8vw;
+	width: 8vw;
+	position: relative;
+	top: 1vw;
+}
+.add{
+	background-color: #43a047;
+	position: relative;
+	top: 3vw;
+	right: 2vw;
+}
+.name{
+	font-size: 20px;
+}
+.details p{
+	position: relative;
+	top: 1vw;
+}
+.name i{
+	color: blue;
+}
+td{
+	text-align: center;
+}
+tr{
+	border: 2px solid white;
+}
+.table{
+	margin-top: 2vw;
+	
+}
+.edit{
+	background-color: #43a047;
+	width: 90%;
+	color:#fff !important;
+}
+
+@media only screen and (max-width: 425px){
+	.main{
+		width: 100vw;
+		height: auto;
+	}
+	.picture img{
+		height: 40vw;
+		width: 40vw;
+		position: relative;
+		left: 5vw;
+	}
+	.details p{
+		position: relative;
+		top: 5vw;
+	}
+	.add{
+		position: relative;
+		top: 8vw;
+	}
+}
+@media only screen and (max-height: 725px){
+	.main{
+		height:auto;
+	}
+}
+
+</style>
+
   </head>
   <!-- [Head] end -->
   <!-- [Body] Start -->
@@ -898,61 +981,78 @@
          
           <!-- [ basic-table ] start -->
           <div class="col-xl-12">
-            <div class="card-header">
-              <h5>Add Your Product</h5>
-            </div>
-              <div class="card-body table-border-style">
-                <div class="table-responsive">
-                  <div
-                    class="datatable-wrapper datatable-loading no-footer sortable searchable fixed-columns"
-                  >
-                  
-                    <div class="datatable-container">
-                      <div class="card">
-                        <div class="card-header">
-                          <h5>Add Your Dish</h5>
-                        </div>
-                        <div class="card-body">
-                          <form action="/sellerdaBord/adddish" enctype="multipart/form-data" method="post" class="row row-cols-md-auto g-3 align-items-center">
-                            <div class="col-12">
-                              <input type="hidden" class="form-control" name="adminid" value="<%= data._id %>" id="inlineFormInputName" placeholder="Dish Name">
-                            </div>
-                            <div class="col-12">
-                              <label class="sr-only" for="inlineFormInputName">Dish Name</label>
-                              <input type="text" class="form-control" name="dname" id="inlineFormInputName" placeholder="Dish Name">
-                            </div>
-                            <div class="col-12">
-                              <label class="sr-only" for="inlineFormInputName">Dish Description</label>
-                              <input type="text" class="form-control" name="ddescription" id="inlineFormInputName" maxlength="60" placeholder="Dish Description">
-                            </div>
-                            <div class="col-12">
-                              <label class="sr-only" for="inlineFormInputGroupUsername">Price</label>
-                              <div class="input-group">
-                                <div class="input-group-text">₹</div>
-                                <input type="text" class="form-control" name="price" id="inlineFormInputGroupUsername" placeholder="Price">
-                              </div>
-                            </div>
-                            <div class="col-12">
-                              <label class="sr-only"  for="inlineFormSelectPref">Preference</label>          
-                              <input type="file" name="imges" id="imges" class="form-control" placeholder="Dish Images">
-                            </div>
-                            <div class="col-12">
-                              <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="inlineFormCheck">
-                                <label class="form-check-label" for="inlineFormCheck"> Remember me </label>
-                              </div>
-                            </div>
-                            <div class="col-12">
-                              <button type="submit" class="btn btn-primary">Add Dish</button>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
+             <!-- Account -->
+             <div class="card-body">
+              <div class="d-flex align-items-start align-items-sm-center gap-6 pb-4 position-relative border-bottom">
+                <div class="position-relative">
+                  <div class="d-block w-px-100 h-px-100 rounded" >
+                    <img src="<%= data.logo %>" alt="user-avatar"  class="d-block w-px-100 h-px-100 rounded " width="150px" height="150px" style="margin-bottom:20px;  border-radius: 50%;" id="uploadedAvatar">
+
                   </div>
+                <div class="button-wrapper">
+                  <form action="/uploadlogo" enctype="multipart/form-data" method="post"> 
+                    <input type="hidden" name="id" value="<%= data._id  %>">
+                  <label for="upload" class="btn btn-primary me-3 mb-4" tabindex="0">
+               <span class="d-none d-sm-block">Select logo</span>
+                    <i class="bx bx-upload d-block d-sm-none"></i>
+                    <input type="file" id="upload" name="logo" class="account-file-input" hidden="" accept="image/png, image/jpeg">
+                  </label>
+
+                  <button type="submit" class="btn btn-outline-secondary account-image-reset mb-4">
+                    <i class="bx bx-reset d-block d-sm-none"></i>
+                    <span class="d-none d-sm-block">Upload Logo</span>
+                  </button>
+                </form>
+                  <div>Allowed JPG, GIF or PNG. Max size of 800K</div>
                 </div>
               </div>
+                <h1 class=" position-absolute end-0 align-items-end align-items-sm-end gap-6 pb-4 border-bottom"><%= data.resturentname   %></h1>
+              </div>
+ 
             </div>
+            <div class="card-body pt-4">
+              <form id="formAccountSettings"   onsubmit="return false">
+                <div class="row g-6">
+                  <div class="col-md-6">
+                      <label for="exampleFormControlReadOnlyInputPlain1" class="form-label">Your Id</label>
+                      <input type="text" readonly="" class="form-control" id="exampleFormControlReadOnlyInputPlain1" value="<%= data._id  %>">
+                     
+                  </div>
+                  <div class="col-md-6">
+                      <label for="exampleFormControlReadOnlyInput1" class="form-label">Your Name</label>
+                      <input class="form-control" type="text" id="exampleFormControlReadOnlyInput1" placeholder="Readonly input here..." readonly="" value="<%= data.fname + "" + data.lname %>">
+                  </div>
+                  <div class="col-md-6">
+                      <label for="exampleFormControlReadOnlyInput1" class="form-label">Your email</label>
+                      <input class="form-control" type="text" id="exampleFormControlReadOnlyInput1" placeholder="Readonly input here..." readonly="" value="<%= data.email %>">
+                  </div>
+                  <div class="col-md-6">
+                      <label for="exampleFormControlReadOnlyInput1" class="form-label">Your Phone Number</label>
+                      <input class="form-control" type="text" id="exampleFormControlReadOnlyInput1" placeholder="Readonly input here..." readonly="" value="<%= data.phone %>" >  
+                  </div>
+                  <div class="col-md-6">
+                    <label for="exampleFormControlReadOnlyInput1" class="form-label">Your password</label>
+                    <input class="form-control" type="text" id="exampleFormControlReadOnlyInput1" placeholder="Readonly input here..." readonly="" value="<%= data.password %>" >  
+                    <div class="d-flex justify-content-between mt-8">
+                      <div class="form-check mb-0 ms-2">
+                        <a href="/sellerdaBord" >
+                        <input class="form-check-input" type="checkbox" id="remember-me" />
+                      </a>
+                        <label class="form-check-label" for="remember-me"> All data done </label>
+                  </div>
+                    <a href="/changepaword">
+                      <span>Forgot Password?</span>
+                    </a>
+                      
+                   
+              </div>
+                  </div>
+                 
+                  <div class="col-md-6">
+                          
+                  </div>
+            <!-- /Account -->
+          </div>
           </div>
           <!-- [ basic-table ] end -->
         </div>

@@ -136,9 +136,9 @@ const viewprofile = async (req,res) => {
     return res.redirect("/");
   }  
   const seller = req.session.seller
-      const id =  seller._id
-     const user =  await adminschemaModel.findById(id)
-  
+  //     const id =  seller._id
+  //    const user =  await adminschemaModel.findById(id)
+  return res.render('./admin/viewProfile',{data: seller})
 }
 
 module.exports = {

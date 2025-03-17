@@ -938,7 +938,6 @@
                             <div class="col-12">
                               <label class="sr-only"  for="inlineFormSelectPref">Preference</label>          
                               <input type="file" name="imges" id="imges" class="form-control" placeholder="Dish Images">
-                              <img src="<%= product.imges %>"  alt="">
                             </div>
                             <div class="col-12">
                               <div class="form-check">
@@ -947,9 +946,10 @@
                               </div>
                             </div>
                             <div class="col-12">
-                              <button type="submit" class="btn btn-primary">Add Dish</button>
+                              <button type="submit" class="btn btn-primary">Update Dish</button>
                             </div>
                           </form>
+
                         </div>
                       </div>
                     </div>
@@ -958,6 +958,8 @@
               </div>
             </div>
           </div>
+          <img src="<%= product.imges %>"  alt=""  height="200px" width="200px">
+
           <!-- [ basic-table ] end -->
         </div>
         <!-- [ Main Content ] end -->

@@ -23,8 +23,8 @@ const storage = multer.diskStorage({
   const upload = multer({ storage: storage })
 router.get('/',sellerdaBord);
 router.post('/adddish',upload.single('imges'), adddish)
-router.get('/viewProduct', viewProduct)
-router.get('/deleteproduct', deleteproduct)
+router.get('/viewProduct', viewProduct) 
+router.get('/deleteproduct', deleteproduct)  
 router.get('/editproduct',editproduct)
 router.post('/updataProduct',upload.single('imges'),updataProduct)
 router.get('/activenoac',activenoac)

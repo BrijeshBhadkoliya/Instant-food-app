@@ -13,19 +13,19 @@
   <meta name="author" content="CodedThemes">
 
   <!-- [Favicon] icon -->
-  <link rel="icon" href="assets/images/favicon.svg" type="image/x-icon"> <!-- [Google Font] Family -->
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/x-icon"> <!-- [Google Font] Family -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" id="main-font-link">
 <!-- [Tabler Icons] https://tablericons.com -->
-<link rel="stylesheet" href="assets/fonts/tabler-icons.min.css" >
+<link rel="stylesheet" href="../assets/fonts/tabler-icons.min.css" >
 <!-- [Feather Icons] https://feathericons.com -->
-<link rel="stylesheet" href="assets/fonts/feather.css" >
+<link rel="stylesheet" href="../assets/fonts/feather.css" >
 <!-- [Font Awesome Icons] https://fontawesome.com/icons -->
-<link rel="stylesheet" href="assets/fonts/fontawesome.css" >
+<link rel="stylesheet" href="../assets/fonts/fontawesome.css" >
 <!-- [Material Icons] https://fonts.google.com/icons -->
-<link rel="stylesheet" href="assets/fonts/material.css" >
+<link rel="stylesheet" href="../assets/fonts/material.css" >
 <!-- [Template CSS Files] -->
-<link rel="stylesheet" href="assets/css/style.css" id="main-style-link" >
-<link rel="stylesheet" href="assets/css/style-preset.css" >
+<link rel="stylesheet" href="../assets/css/style.css" id="main-style-link" >
+<link rel="stylesheet" href="../assets/css/style-preset.css" >
 
 
 <style>
@@ -183,36 +183,24 @@
       <div class="auth-form">
         <div class="auth-header">
            
-          <a href="#"><img src="assets/images/logo-dark.svg" alt="img"></a>
+          <a href="#"><img src="../assets/images/logo-dark.svg" alt="img"></a>
         </div>
   <div class="toast-container"></div>
 
      
   <div class="card my-5">
     <div class="card-body">
-            <form action="/sellerRagister" id="seller" method="post">
+            <form action="/user/userRagisterdata" id="seller" method="post">
             <div class="d-flex justify-content-between align-items-end mb-4">
               <h3 class="mb-0"><b>Sign up</b></h3>
-              <a href="/" class="link-primary">Already have an account?</a>
+              <a href="/user/userLogin" class="link-primary">Already have an account?</a>
             </div>
             <div class="row">
-              <div class="col-md-6">
-                <div class="form-group mb-3">
-                  <label class="form-label">First Name*</label>
-                  <input type="text" id="fname" name="fname" class="form-control" placeholder="First Name">
-                </div>
+              <div class="form-group mb-3">
+                <label class="form-label">User name</label>
+                <input type="text" id="username" name="username" class="form-control" placeholder="Company">
               </div>
-              <div class="col-md-6">
-                <div class="form-group mb-3">
-                  <label class="form-label">Last Name</label>
-                  <input type="text" id="lname" name="lname"  class="form-control" placeholder="Last Name">
-                </div>
-              </div>
-            </div>
-            <div class="form-group mb-3">
-              <label class="form-label">Resturent</label>
-              <input type="text" id="resturentname" name="resturentname" class="form-control" placeholder="Company">
-            </div>
+          
             <div class="form-group mb-3">
               <label class="form-label">Email Address*</label>
               <input type="email" id="email" name="email" class="form-control" placeholder="Email Address">
@@ -221,12 +209,12 @@
               <label class="form-label">Mobaile Number*</label>
               <input type="text" id="phone" name="phone" class="form-control" placeholder="Email Address">
             </div>
-            <div class="form-group mb-3">
+         
               <input type="hidden" id="latitude" name="latitude" class="form-control" placeholder="Email Address">
-            </div>
-            <div class="form-group mb-3">
+           
+           
               <input type="hidden" id="longitude" name="longitude" class="form-control" placeholder="Email Address">
-            </div>
+            
             <div class="form-group mb-3">
               <label class="form-label">Password</label>
               <input type="password" id="password" name="password" class="form-control" placeholder="Password">
@@ -244,21 +232,21 @@
               <div class="col-4">
                 <div class="d-grid">
                   <button type="button" class="btn mt-2 btn-light-primary bg-light text-muted">
-                    <img src="assets/images/authentication/google.svg" alt="img"> <span class="d-none d-sm-inline-block"> Google</span>
+                    <img src="../assets/images/authentication/google.svg" alt="img"> <span class="d-none d-sm-inline-block"> Google</span>
                   </button>
                 </div>
               </div>
               <div class="col-4">
                 <div class="d-grid">
                   <button type="button" class="btn mt-2 btn-light-primary bg-light text-muted">
-                    <img src="assets/images/authentication/twitter.svg" alt="img"> <span class="d-none d-sm-inline-block"> Twitter</span>
+                    <img src="../assets/images/authentication/twitter.svg" alt="img"> <span class="d-none d-sm-inline-block"> Twitter</span>
                   </button>
                 </div>
               </div>
               <div class="col-4">
                 <div class="d-grid">
                   <button type="button" class="btn mt-2 btn-light-primary bg-light text-muted">
-                    <img src="assets/images/authentication/facebook.svg" alt="img"> <span class="d-none d-sm-inline-block"> Facebook</span>
+                    <img src="../assets/images/authentication/facebook.svg" alt="img"> <span class="d-none d-sm-inline-block"> Facebook</span>
                   </button>
                 </div>
               </div>
@@ -287,12 +275,12 @@
 <!-- </form> -->
   <!-- [ Main Content ] end -->
   <!-- Required Js -->
-  <script src="assets/js/plugins/popper.min.js"></script>
-  <script src="assets/js/plugins/simplebar.min.js"></script>
-  <script src="assets/js/plugins/bootstrap.min.js"></script>
-  <script src="assets/js/fonts/custom-font.js"></script>
-  <script src="assets/js/pcoded.js"></script>
-  <script src="assets/js/plugins/feather.min.js"></script>
+  <script src="../assets/js/plugins/popper.min.js"></script>
+  <script src="../assets/js/plugins/simplebar.min.js"></script>
+  <script src="../assets/js/plugins/bootstrap.min.js"></script>
+  <script src="../assets/js/fonts/custom-font.js"></script>
+  <script src="../assets/js/pcoded.js"></script>
+  <script src="../assets/js/plugins/feather.min.js"></script>
 
   
   
