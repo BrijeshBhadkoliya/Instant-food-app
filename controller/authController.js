@@ -29,7 +29,7 @@ const sellerRagister = async (req, res) => {
     req.session.info_msg = "Seller already exist";
     // console.log(req.session);
 
-    console.log("Seller already exist");
+    console.log("Seller already exist");  
     return res.redirect("ragisterGet");
   }
   const salt = await bcrypt.hash(req.body.password, 10);

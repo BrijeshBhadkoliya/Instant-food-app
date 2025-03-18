@@ -12,7 +12,7 @@
 (function ($) {
 
     /*------------------
-        Preloader
+        Preloader 
     --------------------*/
     $(window).on('load', function () {
         $(".loader").fadeOut();

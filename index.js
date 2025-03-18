@@ -52,5 +52,5 @@ app.use('/', require('./Routes/indexrouts'));
 
 app.listen(PORT, () => {
     console.log("Server is running on port: ", PORT);
-    console.log(`http://localhost:${PORT}`);
+    console.log(`http://localhost:${PORT}/user`);
 });            
