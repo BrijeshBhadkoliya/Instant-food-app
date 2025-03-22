@@ -4,6 +4,8 @@ const nodemailer = require("nodemailer");
 const jwt = require("jsonwebtoken");
 const cloudinary = require("cloudinary").v2;
 const fs = require("fs");
+const { log } = require("console");
+const usermodel = require("../model/usermodel");
 
 const ragisterGet = async (req, res) => {
   return res.render("./pages/register");
@@ -156,18 +158,24 @@ const googlecallback = async (req, res) => {
   // const token = jwt.sign({ userId: req.user.id }, "secret", { expiresIn: "1h" });
   // res.cookie("token", token);
   if (req.user.type === "admin") {
-    req.session.seller = req.user;
+    const id = req.user.id
+    const googleWithadmin =  await adminschemaModel.findById(id);
+
+    req.session.seller = googleWithadmin;
     req.session.success_msg = "Welcome to the Seller Panel";
     console.log(req.user);
 
     res.redirect("/sellerdaBord");
-  } else {
-    req.session.user = req.user;
+  } else { 
+    const id = req.user.id
+      const googleWithuser =  await usermodel.findById(id);
+
+    req.session.user = googleWithuser;
     req.session.success_msg = "Welcome to the Instant-food-app";
     console.log(req.user);
-
-    res.redirect("/user");
-  }
+ 
+    res.redirect("/user"); 
+  } 
 };
 
 const uploadlogo = async (req, res) => {

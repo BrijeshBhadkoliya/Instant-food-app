@@ -76,7 +76,7 @@ if(!match){
 const viewuserProducts = async (req,res) => {
   if(!req.session.user){
     return res.redirect('/user/userLogin')
-}
+} 
 const userLat  =  req.session.user.location.latitude
 const userLon  =  req.session.user.location.longitude
 const maxDistance =  30;
@@ -127,7 +127,7 @@ const products = await productsModel.find({ adminid: { $in: nearbyids } });
                const randomIndex = Math.floor(Math.random() * products.length);
                return products[randomIndex];
            });
-           console.log(randomProducts,"done done done");
+          //  console.log(randomProducts,"done done done");
            
       return res.render('./users/categories',{produts:randomProducts})
 }
@@ -138,11 +138,13 @@ const addcrat = async (req,res) =>{
 }
   const id = req.query.id;
    const userid = req.session.user._id
-   console.log(userid);
+  //  console.log(userid);
    
    const product = await productsModel.findById(id);
-   console.log(product);
-    const  model =  await AddcratModel.create({...userid,product})
+  //  console.log(product);
+    const  model =  await AddcratModel.create({userid:userid,adminid:product.adminid,dname:product.dname,ddescription:product.ddescription,price:product.price,imges:product.imges})
+    console.log(model);
+    
        return res.redirect('/user/viewuserProducts')
 }
 module.exports = {

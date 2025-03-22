@@ -39,6 +39,6 @@ router.get('/google/callback',passport.authenticate("google", { failureRedirect:
 router.get("/google",passport.authenticate("google", { scope: ["profile", "email"] })); 
 router.post('/uploadlogo',upload.single('logo'),uploadlogo) 
 
-
+ 
 
 module.exports = router; 
